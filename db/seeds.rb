@@ -11,3 +11,13 @@ Book.destroy_all
 Music.destroy_all
 UserBook.destroy_all
 UserMusic.destroy_all
+
+User.create()
+
+Book.create()
+
+Music.create()
+
+UserBook.create()
+
+UserMusic.create()
