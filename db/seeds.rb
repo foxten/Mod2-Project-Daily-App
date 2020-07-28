@@ -27,7 +27,7 @@ Music.create(title: Faker::Music.album, playlist: Faker::Quote.singular_siegler,
 end
 
 50.times do
-SleepingPattern.create(location: Faker::Address.city, average_sleep: Faker::Number.within(range: 1..10), position: Faker::Types.rb_string, grade: Faker::Dessert.flavor , date: Faker::Date.between(from: 30.days.ago, to: Date.today), user_id: User.all.sample.id)
+SleepingPattern.create(location: Faker::Address.city, average_sleep: Faker::Number.within(range: 1..10), position: Faker::Types.rb_string, grade: Faker::Number.between(from: 1, to: 10) , date: Faker::Date.between(from: 30.days.ago, to: Date.today), user_id: User.all.sample.id)
 end
 
 50.times do
