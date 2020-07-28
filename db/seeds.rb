@@ -34,10 +34,10 @@ end
 ShoppingTrip.create(store: Faker::Company.name, receipt_total: Faker::Number.decimal(l_digits: 2), online: Faker::Boolean.boolean, user_id: User.all.sample.id)
 end
 
-# 50.times do
-# UserBook.create(user_id: User.all.sample.id, book_id: Book.all.user.id)
-# end 
+50.times do
+UserBook.create(user_id: User.all.sample.id, book_id: Book.all.sample.id)
+end 
 
-# 50.times do
-# UserMusic.create(user_id: User.all.sample.id, music_id: Music.all.sample.id)
-# end 
+50.times do
+UserMusic.create(user_id: User.all.sample.id, music_id: Music.all.sample.id)
+end 
