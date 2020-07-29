@@ -1,0 +1,21 @@
+<h2><em><%= @book.title %></em></h2>
+
+By: <%= @book.author %><br>
+Genre: <%= @book.genre %><br>
+Release Date: <%= @book.release_date %><br>
+<h4><br>On the Shelves of:</h4>
+<% @book.users.each do |user| %>
+    <li><%= link_to user.name, user_path(user) %></li>
+<% end %><br>
+
+
+<% if @book.included(@current_user) && @book.users.count == 1%>
+    <%= button_to "Edit Book Information", edit_book_path, method: :get %>
+    <%= button_to "Delete Book", @book,  method: :delete %>
+
+<% elsif @book.included(@current_user) %>
+    <%= button_to "Remove from My Shelf", action: :remove_from_my_shelf %>
+
+<% else %>
+    <%= button_to "Add Book to My Shelves", action: :add_a_book %>
+<% end %>
