@@ -14,7 +14,7 @@ class MusicsController < ApplicationController
     #create
     def create
         @music = Music.create(music_params)
-        redirect_to mission_path(@musics)
+        redirect_to music_path(@music)
     end    
     #edit
     def edit
@@ -29,8 +29,8 @@ class MusicsController < ApplicationController
     #delete
     def destroy
         @music = Music.find(params[:id])
-        @musics.destroy
-        redirect_to music_path
+        @music.destroy
+        redirect_to musics_path
     end    
     ##private
     #music_params
