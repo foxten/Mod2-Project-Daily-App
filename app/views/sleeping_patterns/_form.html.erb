@@ -1,0 +1,20 @@
+<%= form_for @sleeping_pattern do |f| %>
+
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+    
+    <%= f.label :average_sleep %>
+    <%= f.text_field :average_sleep %>
+    
+    <%= f.label :position %>
+    <%= f.text_field :position %>
+    
+    <%= f.label :grade %>
+    <%= f.text_field :grade %>
+    
+    <%= f.label :date %>
+    <%= f.date_select :date %>
+
+    <%= f.submit %>
+
+    <% end %>

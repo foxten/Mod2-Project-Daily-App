@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :books
   resources :musics
   resources :users
+  resources :user_books
+  resources :user_musics
+
 
   get '/session/new', to: 'session#new', as: 'new_session'
   post '/session/new', to: 'session#logged_in'

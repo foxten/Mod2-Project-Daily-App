@@ -1,0 +1,14 @@
+#Sleeping Pattern Show Page
+<h1> Your Sleeping Patterns </h1>
+
+<h3>Location: <%= @sleeping_pattern.location %></h3>
+<p>Average Sleep: <%= @sleeping_pattern.average_sleep %></p>
+<h3>Position: <%= @sleeping_pattern.position %></h3> 
+<h3>Grade: <%= @sleeping_pattern.grade %></h3> 
+<h3>Date: <%= @sleeping_pattern.date %></h3> 
+<br/>
+
+
+<%= button_to "New Sleeping Pattern", {:action => "Show"}, :method => "get" %>
+<%= button_to "EDIT", {:action => "edit"}, :method => "get" %>
+<%= button_to "Remove Your Sleeping Pattern", sleeping_pattern_path(@sleeping_pattern), :method => :delete, :data => {confirm: "Are you sure?"} %>

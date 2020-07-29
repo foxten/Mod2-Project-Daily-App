@@ -1,0 +1,12 @@
+#Music Show Page
+<h1> All The Music </h1>
+
+<h3>Name: <%= @music.title %></h3>
+<p>Playlist: <%= @music.playlist %></p>
+<h3>Category: <%= @music.artist %></h3> 
+<br/>
+
+
+<%= button_to "New Music", {:action => "index"}, :method => "get" %>
+<%= button_to "EDIT", {:action => "edit"}, :method => "get" %>
+<%= button_to "Remove Music", music_path(@music), :method => :delete, :data => {confirm: "Are you sure?"} %>
