@@ -1,8 +1,11 @@
 <h2>Individual Shopping Trip Page</h2>
 
-Store: <%= @shopping_trip.store %><br>
-Total: <%= @shopping_trip.receipt_total %><br>
-Online Purchase? <%= @shopping_trip.online %><br>
+<strong>Store:</strong> <%= @shopping_trip.store %><br>
+<strong>Total:</strong> <%= @shopping_trip.receipt_total %><br>
+<strong>Online Purchase?</strong> <%= @shopping_trip.online %><br>
 
 <br><%= button_to "Edit Purchase Details", edit_shopping_trip_path, method: :get %>
+<br><%= button_to "Back to My Profile", user_profile_path, method: :get %>
+
+
 <br><%= button_to "Delete Transaction", @shopping_trip,  method: :delete %>

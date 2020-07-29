@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_202002) do
     t.string "store"
     t.float "receipt_total"
     t.boolean "online"
+    t.date "date"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

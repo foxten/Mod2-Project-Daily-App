@@ -7,13 +7,14 @@ class SessionController < ApplicationController
     user = User.find_by(name: params[:session][:name])
         if user && user.authenticate(params[:session][:password])
             session[:user_id] = user.id
-            redirect_to user_path(user)
+            redirect_to user_profile_path(user)
         else
             redirect_to new_session_path
         end
    end
 
    def logout
-        session[:user_id].destroy
+        session.delete(:user_id)
+        redirect_to new_session_path
    end
 end

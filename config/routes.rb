@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   resources :user_books
   resources :user_musics
 
+  get '/users/:id/profile', to: 'users#myprofile', as: 'user_profile'
 
   get '/session/new', to: 'session#new', as: 'new_session'
   post '/session/new', to: 'session#logged_in'
-  delete '/session/logout', to: 'session#logout'
+  delete '/session/logout', to: 'session#logout', as: 'logout'
   
   post '/books/:id/add_a_book', to: 'books#add_a_book'
   post '/books/:id/remove_from_my_shelf', to: 'books#remove_from_my_shelf'

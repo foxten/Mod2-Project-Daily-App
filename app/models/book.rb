@@ -16,4 +16,12 @@ class Book < ApplicationRecord
     def included(user_info)
         user_info.books.find_by(id: self.id)
     end
+
+    def suggestions_by_genre
+        Book.where(genre: self.genre).reject{|book| book.title == self.title}
+    end
+
+    def audio_available
+        Music.all.find_by(title: self.title)
+    end
 end

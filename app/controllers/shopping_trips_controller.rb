@@ -10,7 +10,7 @@ class ShoppingTripsController < ApplicationController
     
     def create
         @shopping_trip = ShoppingTrip.new(shopping_trip_params)
-        @shopping_trip.user_id = session[:user_id]
+        @shopping_trip.user_id = @current_user.id
         if @shopping_trip.save
             redirect_to @shopping_trip
         else
@@ -31,9 +31,8 @@ class ShoppingTripsController < ApplicationController
     end
 
     def destroy
-        user = session[:user_id]
         @shopping_trip.destroy
-        redirect_to user_path(user)
+        redirect_to user_profile_path
     end
 
     private
