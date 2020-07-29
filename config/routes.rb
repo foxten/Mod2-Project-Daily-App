@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :user_musics
 
   get '/users/:id/profile', to: 'users#myprofile', as: 'user_profile'
+  # get '/users/:id/broke', to: 'users#broke', as: 'user_spending'
 
   get '/session/new', to: 'session#new', as: 'new_session'
   post '/session/new', to: 'session#logged_in'

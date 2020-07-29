@@ -19,8 +19,13 @@ class UsersController < ApplicationController
             session[:user_id] = @user.id
             redirect_to user_profile_path(@user)
         else
+            flash[:errors] = @user.errors.full_messages
             redirect_to new_user_path
         end
+    end
+
+    def broke
+        @current_user
     end
 
     private

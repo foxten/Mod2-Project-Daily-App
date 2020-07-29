@@ -14,6 +14,7 @@ class ShoppingTripsController < ApplicationController
         if @shopping_trip.save
             redirect_to @shopping_trip
         else
+            flash[:errors] = @shopping_trip.errors.full_messages
             redirect_to new_shopping_trip_path
         end
     end
@@ -41,6 +42,6 @@ class ShoppingTripsController < ApplicationController
     end
 
     def shopping_trip_params
-        params.require(:shopping_trip).permit(:store, :receipt_total, :online)
+        params.require(:shopping_trip).permit(:store, :receipt_total, :online, :date)
     end
 end
