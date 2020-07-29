@@ -1,0 +1,15 @@
+<h2><%= @user.name %>, Welcome!</h2>
+
+<h4>My Books</h4>
+<% @user.books.each do |book| %>
+    <li><%= link_to book.title, book_path(book) %></li>
+    <% end %>
+<hr>
+
+<h4>My Shopping Trips</h4>
+<% @user.shopping_trips.each do |shopping_trip| %>
+    <li><%= link_to shopping_trip.store, shopping_trip_path(shopping_trip) %></li>
+    <% end %>
+<hr>
+
+<%= button_to "Add Book", new_book_path, method: :get %>

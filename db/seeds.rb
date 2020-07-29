@@ -15,7 +15,9 @@ UserBook.destroy_all
 UserMusic.destroy_all
 
 20.times do
-User.create(name: Faker::Name.name)
+  
+User.create(name: Faker::Name.name, password: Faker::Name.name )
+
 end
 
 20.times do

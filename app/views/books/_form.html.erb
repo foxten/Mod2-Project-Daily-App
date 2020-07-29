@@ -1,0 +1,22 @@
+<%= form_for @book do |f| %>
+    <% if flash[:errors] %>
+        <% flash[:errors].each do |error| %>
+            <p><%= error %></p>
+        <% end %>
+    <% end %>
+
+
+    <%=f.label :title %>:
+    <%=f.text_field :title %><br><br>
+
+    <%=f.label :genre %>:
+    <%=f.collection_select :genre, Book.all_genres, :genre, :genre %><br><br>
+
+    <%=f.label :author %>:
+    <%=f.text_field :author %><br><br>
+
+    <%=f.label :release_date %>:
+    <%=f.date_field :release_date %><br><br>
+
+    <%= f.submit %>
+<% end %>

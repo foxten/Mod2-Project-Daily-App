@@ -1,0 +1,10 @@
+<h2> WELCOME! Please sign in.</h2>
+<%= form_for :session, url: new_session_path  do |f|%>
+    <%= f.label :name %>:
+    <%= f.text_field :name %><br>
+
+    <%= f.label :password %>:
+    <%= f.password_field :password %><br>
+
+    <%= f.submit "Log In" %>
+<% end %>

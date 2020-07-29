@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_202002) do
 
   create_table "shopping_trips", force: :cascade do |t|
     t.string "store"
-    t.integer "receipt_total"
+    t.float "receipt_total"
     t.boolean "online"
     t.integer "user_id"
     t.datetime "created_at", precision: 6, null: false
@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_07_27_202002) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
+    t.string "password_digest"
   end
 
 end

@@ -1,0 +1,13 @@
+<%= form_for @shopping_trip do |f| %>
+
+    <%=f.label :store %>:
+    <%=f.text_field :store %><br><br>
+
+    <%=f.label :receipt_total %>:
+    <%=f.number_field :receipt_total,step: :any %><br><br>
+
+    <%=f.label :online %>:
+    <%=f.check_box :online %><br><br>
+
+    <%= f.submit %>
+<% end %>

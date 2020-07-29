@@ -7,4 +7,6 @@ class User < ApplicationRecord
 
     has_many :sleeping_patterns
     has_many :shopping_trips
+
+    has_secure_password
 end
