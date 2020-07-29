@@ -1,5 +1,5 @@
 <h1> All Sleeping Patterns </h1>
 
 <% @sleeping_patterns.each do |sleepingpattern| %>
-    <li><%= link_to sleepingpattern.title, sleeping_pattern_path(sleeping_pattern) %></li>
+    <li><%= link_to sleepingpattern.date, sleeping_pattern_path(sleepingpattern) %></li>
 <% end %>
