@@ -14,6 +14,7 @@ class MusicsController < ApplicationController
     #create
     def create
         @music = Music.create(music_params)
+        UserMusic.create(user_id: @current_user.id, music_id: @music_id)
         redirect_to music_path(@music)
     end    
     #edit
@@ -24,7 +25,7 @@ class MusicsController < ApplicationController
     def update 
         @music = Music.find(params[:id])
         @music.update(music_params)
-        redirect_to musics_path(@musics)
+        redirect_to music_path(@music)
     end    
     #delete
     def destroy
