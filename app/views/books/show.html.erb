@@ -20,10 +20,14 @@ Release Date: <%= @book.release_date %><br>
    
 
 <h4>Similar Titles:</h4>
-<% @book.suggestions_by_genre.each do |book| %>
-        <li><%= link_to book.title, book_path(book) %></li>
+    <% if @book.suggestions_by_genre.count == 0 %>
+        <%= "No similar titles at the moment." %>
+    <% else %>
+        <% @book.suggestions_by_genre.each do |book| %>
+            <li><%= link_to book.title, book_path(book) %></li>
+        <% end %>
     <% end %>
-<br>
+<br><br>
 
 
 

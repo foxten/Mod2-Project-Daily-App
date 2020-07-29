@@ -7,15 +7,38 @@
 
 <hr>
 
-<h4>My Shopping Trips</h4>
-<% @current_user.shopping_trips.each do |shopping_trip| %>
-    <li><%= link_to shopping_trip.store, shopping_trip_path(shopping_trip) %></li>
+<h4>My Music</h4>
+    <% @current_user.musics.each do |music| %>
+        <li><%= link_to music.title, music_path(music) %>
     <% end %>
+
 <hr>
 
-<%= button_to "Library", books_path, method: :get %>
+<h4>Recent Shopping Trips</h4>
+<% @current_user.most_recent_transactions.each do |trip| %>
+    <li><%= link_to trip.date, shopping_trip_path(trip) %></li>
+    <% end %><br>
+
+<strong>Total Spent:</strong> <%= @current_user.total %>
+<hr>
+
+<h4>Sleep Data for the Past Week</h4>
+<% @current_user.last_seven_sleep_entries.each do |entry| %>
+    <li><%= link_to entry.date, sleeping_patterns_path(entry) %></li>
+    <% end %><br>
+<strong>Average Sleep Rating:</strong> <%= @current_user.average_sleep_rating %>
+
+<hr>
+
+<%= button_to "Book Library", books_path, method: :get %>
+<%= button_to "Music Library", musics_path, method: :get %><br>
+
 <%= button_to "Add New Book", new_book_path, method: :get %>
+<%= button_to "Add New Music", new_music_path, method: :get %><br>
+
 <%= button_to "Add New Transaction", new_shopping_trip_path, method: :get %>
+<%= button_to "Add New Sleep Entry", new_sleeping_pattern_path, method: :get %><br>
+
 
 
 
