@@ -39,18 +39,17 @@ class BooksController < ApplicationController
     
     def add_a_book
         UserBook.create(book_id: @book.id, user_id: @current_user.id)
-        redirect_to user_path(@current_user)
+        redirect_to user_profile_path
     end
 
     def remove_from_my_shelf
         @book.one_less_shelf(@current_user)
-        redirect_to user_path(@current_user)
+        redirect_to user_profile_path
     end
-
 
     def destroy
         @book.destroy
-        redirect_to user_path(@current_user)
+        redirect_to user_profile_path
     end
 
 

@@ -33,7 +33,7 @@ SleepingPattern.create(location: Faker::Address.city, average_sleep: Faker::Numb
 end
 
 50.times do
-ShoppingTrip.create(store: Faker::Company.name, receipt_total: Faker::Number.decimal(l_digits: 2), online: Faker::Boolean.boolean, user_id: User.all.sample.id)
+ShoppingTrip.create(store: Faker::Company.name, receipt_total: Faker::Number.decimal(l_digits: 2), online: Faker::Boolean.boolean, date: Faker::Date.between(from: 30.days.ago, to: Date.today), user_id: User.all.sample.id)
 end
 
 50.times do

@@ -4,6 +4,7 @@ class CreateShoppingTrips < ActiveRecord::Migration[6.0]
       t.string :store
       t.float :receipt_total
       t.boolean :online
+      t.date :date
       t.integer :user_id
 
       t.timestamps
