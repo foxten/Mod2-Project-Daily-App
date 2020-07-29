@@ -14,7 +14,7 @@ class SleepingPatternsController < ApplicationController
     #create
     def create
         @sleeping_pattern = SleepingPattern.create(sleeping_params)
-        redirect_to sleeping_pattern_path(@sleeping_pattern)
+        redirect_to user_path
     end    
     #edit
     def edit
@@ -24,7 +24,7 @@ class SleepingPatternsController < ApplicationController
     def update 
         @sleeping_pattern = SleepingPattern.find(params[:id])
         @sleeping_pattern.update(sleeping_params)
-        redirect_to sleeping_pattern_path(@sleeping_pattern)
+        redirect_to user_path(@sleeping_pattern)
     end    
     #delete
     def destroy
