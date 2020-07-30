@@ -27,6 +27,13 @@ class MusicsController < ApplicationController
         @music.update(music_params)
         redirect_to music_path(@music)
     end    
+
+    def add_a_song
+        @music = Music.find(params[:id])
+        UserMusic.create(music_id: @music.id, user_id: @current_user.id)
+        redirect_to user_profile_path
+    end
+
     #delete
     def destroy
         @music = Music.find(params[:id])

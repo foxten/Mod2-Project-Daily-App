@@ -5,12 +5,13 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
     end
 
-    def myprofile
+    def profile
         @current_user
     end
 
     def new
         @user = User.new
+        render :layout => false
     end
 
     def create
