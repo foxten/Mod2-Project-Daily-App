@@ -1,11 +1,9 @@
 class SessionController < ApplicationController
 
    def new
-    render :layout => false
    end
 
    def welcome
-    render :layout => false
    end
 
    def logged_in
