@@ -1,1 +1,20 @@
 <h2><%= @current_user.name %>'s Sleep Data</h2>
+
+<% @current_user.sorted_sleep_data.each do |pattern| %>
+    <li><%= link_to pattern.date, sleeping_pattern_path(pattern) %></li>
+<% end %>
+
+<% if @current_user.best_rest == @current_user. longest_nights_sleep %>
+    <br> You had your best, and longest, night's rest on <%= link_to "#{@current_user.best_rest.date}", sleeping_pattern_path(@current_user.best_rest.id) %><br>
+<% else %>
+    <br>Best Night's Rest: <%= link_to "#{@current_user.best_rest.date}", sleeping_pattern_path(@current_user.best_rest.id) %><br>
+    <br>Longest Night's Rest: <%= link_to "#{@current_user. longest_nights_sleep.date}", sleeping_pattern_path(@current_user. longest_nights_sleep.id) %><br>
+<% end %>
+
+
+<h4>Monthly Averages</h4>
+<% @current_user.hours_of_sleep_per_month.each do |month, entries| %>
+    <%= Date::MONTHNAMES[month] %>: <%= (entries.map{|entry| entry.average_sleep}.sum.to_f) /(entries.map{|entry| entry.average_sleep}.count) %> hours of sleep per night.<br><hr>
+<% end %>
+
+
