@@ -1,4 +1,4 @@
-<h2>Book Library</h2>
+<div id="all"><h2>Book Library</h2></div>
 
 <% @books.each do |book| %>
     <li><%= link_to book.title, book_path(book) %></li>
