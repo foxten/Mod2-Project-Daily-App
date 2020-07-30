@@ -1,5 +1,18 @@
-<h2>Shopping Analytics</h2>
+<h2><%= @current_user.name %>'s Shopping Data</h2>
 
-#get all shopping trips between two dates (drop down)
-#calculate total or all of those
+<h4>All Transactions</h4>
+<% @current_user.sorted_transactions.each do |trip| %>
+    <li><%= link_to trip.date, shopping_trip_path(trip) %></li>
+<% end %><br>
+
+Most Expensive Trip: <%= link_to "#{@current_user.most_expensive.store} on #{@current_user.most_expensive.date}", shopping_trip_path(@current_user.most_expensive.id) %><br><br>
+
+<h4>Monthly Spending</h4>
+<% @current_user.monthly_trips.each do |month, trips| %>
+    <strong><%= Date::MONTHNAMES[month] %>:</strong> $<%= trips.map {|trip| trip.receipt_total}.sum %><br><hr>
+<% end %>
+
+
+
+
 
