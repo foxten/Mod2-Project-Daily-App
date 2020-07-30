@@ -1,9 +1,9 @@
-<h2>Individual Shopping Trip Page</h2>
+<h2>Trip to <%= @shopping_trip.store %> on <%= @shopping_trip.date.strftime("%A, %B %e, %Y") %></h2><br><br>
 
 <strong>Store:</strong> <%= @shopping_trip.store %><br>
 <strong>Total:</strong> <%= @shopping_trip.receipt_total %><br>
 <strong>Online Purchase?</strong> <%= @shopping_trip.online %><br>
-<strong>Date:</strong> <%= @shopping_trip.date %><br>
+<strong>Date:</strong> <%= @shopping_trip.date.strftime("%D") %><br>
 
 <br><%= button_to "Edit Purchase Details", edit_shopping_trip_path, method: :get %>
 <br><%= button_to "Back to My Profile", user_profile_path, method: :get %>

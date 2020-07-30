@@ -1,14 +1,28 @@
-#Music Show Page
 <h1> All The Music </h1>
 
 <h3>Name: <%= @music.title %></h3>
-<p>Playlist: <%= @music.playlist %></p>
+<p>Playlist: <%= link_to @music.playlist, music_playlist_path %></p>
 <h3>Category: <%= @music.artist %></h3> 
-<br/>
+<br>
+
+<h4><br>On the Playlists of:</h4>
+<% @music.users.uniq.each do |user| %>
+    <li><%= link_to user.name, user_path(user) %></li>
+<% end %><br>
 
 
-<%= button_to "New Music", {:action => "new"}, :method => "get" %>
-<%= button_to "EDIT", {:action => "edit"}, :method => "get" %>
-<%= button_to "Add This Song to My Playlists", action: :add_a_song %>
 
-<%= button_to "Remove Music", music_path(@music), :method => :delete, :data => {confirm: "Are you sure?"} %>
+<% if @music.included(@current_user) && @music.users.count == 1%>
+    <%= button_to "Edit Song", {:action => "edit"}, :method => "get" %>
+    <%= button_to "Delete Song", @music,  method: :delete, data: {confirm: "Song will be removed from all records. Proceed?"}%>
+
+<% elsif @music.included(@current_user) %>
+    <%= button_to "Remove from My Playlists", data: {confirm: "Song will be removed from your playlists. Proceed?"}, action: :remove_from_my_playlists %>
+
+<% else %>
+    <%= button_to "Add This Song to My Playlists", action: :add_a_song %>
+<% end %><br>
+
+<%= button_to "All Music", musics_path, method: :get %>
+
+
