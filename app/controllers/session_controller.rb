@@ -1,6 +1,11 @@
 class SessionController < ApplicationController
 
    def new
+    render :layout => false
+   end
+
+   def welcome
+    render :layout => false
    end
 
    def logged_in
@@ -15,6 +20,6 @@ class SessionController < ApplicationController
 
    def logout
         session.delete(:user_id)
-        redirect_to new_session_path
+        redirect_to welcome_path
    end
 end

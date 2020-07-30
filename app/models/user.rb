@@ -26,8 +26,8 @@ class User < ApplicationRecord
     end
 
     def average_sleep_rating
-        ratings = self.last_seven_sleep_entries.map{|entry| entry.rating}
-        # (ratings.sum.to_i) / (ratings.count)
+        ratings = self.last_seven_sleep_entries.map{|entry| entry.grade}
+        (ratings.sum.to_i) / (ratings.count)
     end
 
 end

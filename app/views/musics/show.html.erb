@@ -7,6 +7,8 @@
 <br/>
 
 
-<%= button_to "New Music", {:action => "index"}, :method => "get" %>
+<%= button_to "New Music", {:action => "new"}, :method => "get" %>
 <%= button_to "EDIT", {:action => "edit"}, :method => "get" %>
+<%= button_to "Add This Song to My Playlists", action: :add_a_song %>
+
 <%= button_to "Remove Music", music_path(@music), :method => :delete, :data => {confirm: "Are you sure?"} %>

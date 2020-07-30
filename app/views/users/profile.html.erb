@@ -19,15 +19,17 @@
     <li><%= link_to trip.date, shopping_trip_path(trip) %></li>
     <% end %><br>
 
-<strong>Total Spent:</strong> <%= @current_user.total %>
+<strong>Total Spent:</strong> <%= @current_user.total %><br><br>
+<%= button_to "All Spending", user_spending_path, method: :get %>
 <hr>
 
 <h4>Sleep Data for the Past Week</h4>
 <% @current_user.last_seven_sleep_entries.each do |entry| %>
-    <li><%= link_to entry.date, sleeping_patterns_path(entry) %></li>
+    <li><%= link_to entry.date, sleeping_pattern_path(entry.id) %></li>
     <% end %><br>
-<strong>Average Sleep Rating:</strong> <%= @current_user.average_sleep_rating %>
+<strong>Average Sleep Rating:</strong> <%= @current_user.average_sleep_rating %> out of 10<br><br>
 
+<%= button_to "All Sleep Data", user_sleepdata_path, method: :get %>
 <hr>
 
 <%= button_to "Book Library", books_path, method: :get %>
