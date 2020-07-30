@@ -1,11 +1,15 @@
 
-<h2 style:""> WELCOME! Please sign in.</h2>
-<%= form_for :session, url: new_session_path  do |f|%>
-    <%= f.label :name %>:
-    <%= f.text_field :name %><br>
+<p id="welcome"> WELCOME! Please sign in.</p>
+    <div id="body2">
+    <ul id="inside">
+        <%= form_for :session, url: new_session_path  do |f|%>
+        <%= f.label :name %>:
+        <%= f.text_field :name %><br>
 
-    <%= f.label :password %>:
-    <%= f.password_field :password %><br>
+        <%= f.label :password %>:
+        <%= f.password_field :password %><br>
 
-    <%= f.submit "Log In" %>
-<% end %>
+        <%= f.submit "Log In" %>
+    <% end %>
+    </ul>
+</div>

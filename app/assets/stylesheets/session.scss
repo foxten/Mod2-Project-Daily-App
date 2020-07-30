@@ -1,10 +1,29 @@
 // Place all the styles related to the Session controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-h2 {
-    background-color: gray ;
+
+#welcome {
+    text-align: center;
+    border: 1px solid blue;
+    color: red;
+ }
+
+
+#body {
+    background-color: aquamarine;
+    line-height: 50px;
+    text-align: center;
+    border: 2px dotted red;
+}
+
+#inside {
     display: inline-block;
     line-height: 35px;
-    margin: 0px auto;
-    padding: 0px 10px;
-}
+    text-align: left;
+    color: black;
+ }
+
+ #body2 {
+    background-color: darkgray;
+    text-align: center;
+ }
