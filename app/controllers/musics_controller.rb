@@ -14,7 +14,6 @@ class MusicsController < ApplicationController
     #create
     def create
         @music = Music.create(music_params)
-        byebug
         UserMusic.create(user_id: @current_user.id, music_id: @music.id)
         redirect_to music_path(@music)
     end    
