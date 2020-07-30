@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   post '/books/:id/remove_from_my_shelf', to: 'books#remove_from_my_shelf'
 
   post '/musics/:id/add_a_song', to: 'musics#add_a_song'
+  post '/musics/:id/remove_from_my_playlists', to: 'musics#remove_from_my_playlists'
+  get '/musics/:id/playlist', to: 'musics#playlist', as: 'music_playlist'
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

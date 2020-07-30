@@ -6,6 +6,10 @@
     <% end %>
 
 <hr><br>
-
+<h4>Music I'm Listening To</h4>
+    <% @user.musics.uniq.each do |song| %>
+        <li><%= link_to song.title, music_path(song) %>
+    <% end %>
+<hr><br>
 
 <%= button_to "Back to My Profile", user_profile_path, method: :get %>

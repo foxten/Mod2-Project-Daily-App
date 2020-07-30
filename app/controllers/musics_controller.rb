@@ -14,7 +14,7 @@ class MusicsController < ApplicationController
     #create
     def create
         @music = Music.create(music_params)
-        UserMusic.create(user_id: @current_user.id, music_id: @music_id)
+        UserMusic.create(user_id: @current_user.id, music_id: @music.id)
         redirect_to music_path(@music)
     end    
     #edit
@@ -31,6 +31,16 @@ class MusicsController < ApplicationController
     def add_a_song
         @music = Music.find(params[:id])
         UserMusic.create(music_id: @music.id, user_id: @current_user.id)
+        redirect_to user_profile_path
+    end
+
+    def playlist
+        @music = Music.find(params[:id])
+    end
+
+    def remove_from_my_playlists
+        @music = Music.find(params[:id])
+        @music.one_less_playlist(@current_user)
         redirect_to user_profile_path
     end
 

@@ -5,6 +5,9 @@
         <li><%= link_to book.title, book_path(book) %>
     <% end %>
 
+<br><br><%= button_to "Book Library", books_path, method: :get %>
+<%= button_to "Add New Book", new_book_path, method: :get %>
+
 <hr>
 
 <h4>My Music</h4>
@@ -12,34 +15,40 @@
         <li><%= link_to music.title, music_path(music) %>
     <% end %>
 
+<br><br><%= button_to "Music Library", musics_path, method: :get %>
+<%= button_to "Add New Music", new_music_path, method: :get %><br>
+
 <hr>
 
 <h4>Recent Shopping Trips</h4>
-<% @current_user.most_recent_transactions.each do |trip| %>
-    <li><%= link_to trip.date, shopping_trip_path(trip) %></li>
-    <% end %><br>
 
-<strong>Total Spent:</strong> <%= @current_user.total %><br><br>
-<%= button_to "All Spending", user_spending_path, method: :get %>
+<% if @current_user.shopping_trips.count > 0 %>
+    <% @current_user.most_recent_transactions.each do |trip| %>
+        <li><%= link_to trip.date.strftime("%D"), shopping_trip_path(trip) %></li>
+    <% end %><br>
+    <strong>Total Spent:</strong> <%= @current_user.total %><br><br>
+    <%= button_to "All Spending", user_spending_path, method: :get %>
+<% else %>
+        <em><%= "No spending data just yet." %></em>
+<% end %>
+    <br><br><%= button_to "Add New Transaction", new_shopping_trip_path, method: :get %>
 <hr>
 
 <h4>Sleep Data for the Past Week</h4>
-<% @current_user.last_seven_sleep_entries.each do |entry| %>
-    <li><%= link_to entry.date, sleeping_pattern_path(entry.id) %></li>
+<% if @current_user.sleeping_patterns.count > 0 %>
+    <% @current_user.last_seven_sleep_entries.each do |entry| %>
+        <li><%= link_to entry.date.strftime("%D"), sleeping_pattern_path(entry.id) %></li>
     <% end %><br>
-<strong>Average Sleep Rating:</strong> <%= @current_user.average_sleep_rating %> out of 10<br><br>
-
-<%= button_to "All Sleep Data", user_sleepdata_path, method: :get %>
+    <strong>Average Sleep Rating:</strong> <%= @current_user.average_sleep_rating %> out of 10<br><br>
+    <%= button_to "All Sleep Data", user_sleepdata_path, method: :get %>
+<% else %>
+    <em><%= "No sleep data just yet." %></em>
+<% end %>
+<br><br><%= button_to "Add New Sleep Entry", new_sleeping_pattern_path, method: :get %>
 <hr>
 
-<%= button_to "Book Library", books_path, method: :get %>
-<%= button_to "Music Library", musics_path, method: :get %><br>
 
-<%= button_to "Add New Book", new_book_path, method: :get %>
-<%= button_to "Add New Music", new_music_path, method: :get %><br>
 
-<%= button_to "Add New Transaction", new_shopping_trip_path, method: :get %>
-<%= button_to "Add New Sleep Entry", new_sleeping_pattern_path, method: :get %><br>
 
 
 
