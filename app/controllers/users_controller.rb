@@ -25,10 +25,6 @@ class UsersController < ApplicationController
         end
     end
 
-    def broke
-        @current_user
-    end
-
     private
     def user_params
         params.require(:user).permit(:name, :password)
