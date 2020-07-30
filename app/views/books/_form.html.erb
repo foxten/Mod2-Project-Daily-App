@@ -1,3 +1,4 @@
+<div id="inside2">
 <%= form_for @book do |f| %>
     <% if flash[:errors] %>
         <% flash[:errors].each do |error| %>
@@ -16,7 +17,8 @@
     <%=f.text_field :author %><br><br>
 
     <%=f.label :release_date %>:
-    <%=f.date_select :release_date %><br><br>
+    <%=f.date_field :release_date %><br><br>
 
     <%= f.submit %>
 <% end %>
+</div>

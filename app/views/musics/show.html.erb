@@ -1,11 +1,11 @@
-<h1> All The Music </h1>
+<h1 id="welcome"> All The Music </h1>
 
-<h3>Name: <%= @music.title %></h3>
+<h3 id="body">Name: <%= @music.title %></h3>
 <p>Playlist: <%= link_to @music.playlist, music_playlist_path %></p>
-<h3>Category: <%= @music.artist %></h3> 
+<h3 id="body">Category: <%= @music.artist %></h3> 
 <br>
 
-<h4><br>On the Playlists of:</h4>
+<h4 id="body">On the Playlists of:</h4>
 <% @music.users.uniq.each do |user| %>
     <li><%= link_to user.name, user_path(user) %></li>
 <% end %><br>

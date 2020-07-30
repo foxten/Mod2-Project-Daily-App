@@ -1,4 +1,4 @@
-<h2><%= @current_user.name %>'s Sleep Data</h2>
+<h2 id="welcome"><%= @current_user.name %>'s Sleep Data</h2>
 
 <% @current_user.sorted_sleep_data.each do |pattern| %>
     <li><%= link_to pattern.date, sleeping_pattern_path(pattern) %></li>
