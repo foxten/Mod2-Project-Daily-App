@@ -36,6 +36,8 @@ class User < ApplicationRecord
     def average_sleep_rating
         ratings = self.last_seven_sleep_entries.map{|entry| entry.grade}
         ((ratings.sum.to_f) / (ratings.count)).round(2)
+        rescue ZeroDivisionError
+        0
     end
 
     def monthly_trips
