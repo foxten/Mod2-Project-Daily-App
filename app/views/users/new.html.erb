@@ -1,4 +1,5 @@
 <h2 id="welcome">Sign Up!</h2>
+<div id="body4">
 <%= form_for @user do |f| %>
     <% if flash[:errors] %>
         <% flash[:errors].each do |error| %>
@@ -7,12 +8,13 @@
     <% end %>
     
     <strong><%= f.label :name %></strong>:
-    <%= f.text_field :name %>
+    <%= f.text_field :name %><br><br>
 
     <strong><%= f.label :password %></strong>:
-    <%= f.password_field :password %>
-
+    <%= f.password_field :password %><br><br>
     <%= f.submit %>
 <% end %>
+
+</div>
 
 
