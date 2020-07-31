@@ -33,7 +33,7 @@ class SleepingPatternsController < ApplicationController
         @sleeping_pattern = SleepingPattern.find(params[:id])
         
         @sleeping_pattern.destroy
-        redirect_to sleeping_pattern_path
+        redirect_to user_profile_path(@current_user)
     end    
     #private
     #sleeping_params
