@@ -1,7 +1,7 @@
 <h2 id="welcome"><%= @current_user.name %>, Welcome!</h2>
 
 
-<h4>My Books</h4>
+<h4 id="body">My Books</h4>
     <% if @current_user.books.count > 0 %>
         <% @current_user.books.each do |book| %>
             <li><%= link_to book.title, book_path(book) %>
@@ -18,7 +18,7 @@
 <hr>
 
 
-<h4>My Music</h4>
+<h4 id="body">My Music</h4>
     <% if @current_user.musics.count > 0 %>
         <% @current_user.musics.each do |music| %>
             <li><%= link_to music.title, music_path(music) %>

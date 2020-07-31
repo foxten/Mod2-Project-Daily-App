@@ -20,7 +20,7 @@ class BooksController < ApplicationController
             redirect_to @book
         else
             flash[:errors] = @book.errors.full_messages
-            redirect_to new_book_path
+            render new_book_path
         end
     end
 

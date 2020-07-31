@@ -12,7 +12,8 @@ class SessionController < ApplicationController
             session[:user_id] = user.id
             redirect_to user_profile_path(user)
         else
-            redirect_to new_session_path
+            flash[:errors] = "Please ensure that username and password were entered correctly."
+            render new_session_path
         end
    end
 

@@ -15,7 +15,7 @@ class ShoppingTripsController < ApplicationController
             redirect_to @shopping_trip
         else
             flash[:errors] = @shopping_trip.errors.full_messages
-            redirect_to new_shopping_trip_path
+            render new_shopping_trip_path
         end
     end
 
