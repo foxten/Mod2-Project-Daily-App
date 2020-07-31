@@ -1,4 +1,4 @@
-<h1>Playlist</h1>
+<h1 id="welcome">Playlist</h1>
 
 <% @music.playlist_partners.each do |song| %>
     <li><%= link_to song.title, music_path(song) %></li>

@@ -1,7 +1,9 @@
-<h1> Music Index </h1>
-<%= button_to "New Music", {:action => "new"}, :method => "get" %>
+<h1 id="welcome"> Music Index </h1>
+<div id="inside2">
 <% @musics.each do |music| %>
     <ul>
     <li><%= link_to music.title, music_path(music)%></li>
     </ul>
     <% end %>
+<%= button_to "New Music", {:action => "new"}, :method => "get" %>
+</div>

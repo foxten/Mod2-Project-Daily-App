@@ -1,9 +1,9 @@
-<h2><em><%= @book.title %></em></h2><br>
+<h2 id="welcome"><em><%= @book.title %></em></h2><br>
 
 By: <%= @book.author %><br>
 Genre: <%= @book.genre %><br>
 Release Date: <%= @book.release_date %><br>
-<h4><br>On the Shelves of:</h4>
+<h4 id="body">On the Shelves of:</h4>
     <% if @book.users.count > 0 %>
         <% @book.users.uniq.each do |user| %>
             <li><%= link_to user.name, user_path(user) %></li>
@@ -12,7 +12,7 @@ Release Date: <%= @book.release_date %><br>
         <em><%= "No readers yet." %></em>
     <% end %>
 
-<h4>Audio Available?</h4>
+<h4 id="body">Audio Available?</h4>
     <% if @book.audio_available == nil%>
         <em><%= "Unfortunately, this book's not available in audio format. Please check back later." %></em>
     <% else %>
@@ -23,7 +23,7 @@ Release Date: <%= @book.release_date %><br>
         
    
 
-<h4>Similar Titles:</h4>
+<h4 id="body">Similar Titles:</h4>
     <% if @book.suggestions_by_genre.count == 0 %>
         <em><%= "No similar titles at the moment." %></em>
     <% else %>

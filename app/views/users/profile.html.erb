@@ -1,4 +1,5 @@
-<h2><%= @current_user.name %>, Welcome!</h2>
+<h2 id="welcome"><%= @current_user.name %>, Welcome!</h2>
+
 
 <h4>My Books</h4>
     <% if @current_user.books.count > 0 %>
@@ -9,10 +10,13 @@
         <em><%= "No books on your shelves." %></em>
     <% end %>
 
-<br><br><%= button_to "Book Library", books_path, method: :get %>
+<br><br>
+<%= button_to "Book Library", books_path, method: :get %>
 <%= button_to "Add New Book", new_book_path, method: :get %>
 
+
 <hr>
+
 
 <h4>My Music</h4>
     <% if @current_user.musics.count > 0 %>
@@ -28,7 +32,7 @@
 
 <hr>
 
-<h4>Recent Shopping Trips</h4>
+<h4 id="body">Recent Shopping Trips</h4>
 
 <% if @current_user.shopping_trips.count > 0 %>
     <% @current_user.most_recent_transactions.each do |trip| %>
@@ -42,7 +46,7 @@
     <%= button_to "Add New Transaction", new_shopping_trip_path, method: :get %>
 <hr>
 
-<h4>Sleep Data for the Past Week</h4>
+<h4 id="body">Sleep Data for the Past Week</h4>
 <% if @current_user.sleeping_patterns.count > 0 %>
     <% @current_user.last_seven_sleep_entries.each do |entry| %>
         <li><%= link_to entry.date.strftime("%D"), sleeping_pattern_path(entry.id) %></li>
