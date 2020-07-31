@@ -1,6 +1,9 @@
-
 <p id="welcome"> WELCOME! Please sign in.</p>
-    <div id="body2">
+<div id="body2">
+    <br><% if flash[:errors] %>
+        <%= flash[:errors] %><br>
+    <% end %>
+
     <ul id="inside">
         <%= form_for :session, url: new_session_path  do |f|%>
         <%= f.label :name %>:

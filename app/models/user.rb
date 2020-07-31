@@ -41,7 +41,7 @@ class User < ApplicationRecord
     end
 
     def monthly_trips
-        self.shopping_trips.group_by{|trip| trip.date.month}
+        self.shopping_trips.sort_by{|trip| trip.date.month}.group_by{|trip| trip.date.month}
     end
 
     def most_expensive

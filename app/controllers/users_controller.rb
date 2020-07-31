@@ -7,6 +7,7 @@ class UsersController < ApplicationController
 
     def profile
         @current_user
+        render :layout => "loggedin"
     end
 
     def new
