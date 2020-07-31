@@ -1,14 +1,22 @@
 <h2 id="welcome"><%= @user.name %></h2>
 
 <h4 id="body">Books I'm Reading</h4>
-    <% @user.books.uniq.each do |book| %>
-        <li><%= link_to book.title, book_path(book) %>
+    <% if @user.books.count > 0 %>
+        <% @user.books.uniq.each do |book| %>
+            <li><%= link_to book.title, book_path(book) %>
+        <% end %>
+    <% else %>
+        <em><%="This user doesn't have any books saved."%></em>
     <% end %>
-
+    
 <hr><br>
 <h4 id="body">Music I'm Listening To</h4>
-    <% @user.musics.uniq.each do |song| %>
-        <li><%= link_to song.title, music_path(song) %>
+    <% if @user.musics.count > 0 %>
+        <% @user.musics.uniq.each do |song| %>
+            <li><%= link_to song.title, music_path(song) %>
+        <% end %>
+    <% else %>
+        <em><%="This user doesn't have any music saved."%></em>
     <% end %>
 <hr><br>
 

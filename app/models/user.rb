@@ -57,7 +57,7 @@ class User < ApplicationRecord
     end
 
     def hours_of_sleep_per_month
-        self.sleeping_patterns.group_by{|entry| entry.date.month}
+        self.sleeping_patterns.sort_by{|trip| trip.date.month}.group_by{|entry| entry.date.month}
     end
 
 end
