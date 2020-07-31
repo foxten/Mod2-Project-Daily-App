@@ -1,8 +1,13 @@
 <h2 id="welcome"><%= @current_user.name %>, Welcome!</h2>
 
-<h4 id="body">My Books</h4>
-    <% @current_user.books.each do |book| %>
-        <li><%= link_to book.title, book_path(book) %>
+
+<h4>My Books</h4>
+    <% if @current_user.books.count > 0 %>
+        <% @current_user.books.each do |book| %>
+            <li><%= link_to book.title, book_path(book) %>
+        <% end %>
+    <% else %>
+        <em><%= "No books on your shelves." %></em>
     <% end %>
 
 <br><br>
@@ -12,13 +17,18 @@
 
 <hr>
 
-<h4 id="body">My Music</h4>
-    <% @current_user.musics.each do |music| %>
-        <li><%= link_to music.title, music_path(music) %>
+
+<h4>My Music</h4>
+    <% if @current_user.musics.count > 0 %>
+        <% @current_user.musics.each do |music| %>
+            <li><%= link_to music.title, music_path(music) %>
+        <% end %>
+    <% else %>
+        <em><%= "No music saved." %></em>
     <% end %>
 
 <br><br><%= button_to "Music Library", musics_path, method: :get %>
-<%= button_to "Add New Music", new_music_path, method: :get %><br>
+<%= button_to "Add New Music", new_music_path, method: :get %>
 
 <hr>
 
@@ -33,7 +43,7 @@
 <% else %>
         <em><%= "No spending data just yet." %></em>
 <% end %>
-    <br><br><%= button_to "Add New Transaction", new_shopping_trip_path, method: :get %>
+    <%= button_to "Add New Transaction", new_shopping_trip_path, method: :get %>
 <hr>
 
 <h4 id="body">Sleep Data for the Past Week</h4>
@@ -46,7 +56,7 @@
 <% else %>
     <em><%= "No sleep data just yet." %></em>
 <% end %>
-<br><br><%= button_to "Add New Sleep Entry", new_sleeping_pattern_path, method: :get %>
+    <%= button_to "Add New Sleep Entry", new_sleeping_pattern_path, method: :get %>
 <hr>
 
 
