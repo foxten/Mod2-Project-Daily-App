@@ -14,7 +14,7 @@ class ShoppingTripsController < ApplicationController
         if @shopping_trip.save
             redirect_to @shopping_trip
         else
-            flash[:errors] = @shopping_trip.errors.full_messages
+            flash[:trip_errors] = @shopping_trip.errors.full_messages
             render new_shopping_trip_path
         end
     end
@@ -27,6 +27,7 @@ class ShoppingTripsController < ApplicationController
         if @shopping_trip.save
             redirect_to @shopping_trip
         else
+            flash[:trip_errors] = @shopping_trip.errors.full_messages
             redirect_to edit_shopping_trip_path
         end
     end

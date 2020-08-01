@@ -1,8 +1,8 @@
 <h2 id="welcome">Sign Up!</h2>
 <div id="body4">
 <%= form_for @user do |f| %>
-    <% if flash[:errors] %>
-        <% flash[:errors].each do |error| %>
+    <% if flash[:user_errors] %>
+        <% flash[:user_errors].each do |error| %>
             <p><%= error %></p>
         <% end %>
     <% end %>

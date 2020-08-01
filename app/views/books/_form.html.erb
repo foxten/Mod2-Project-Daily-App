@@ -1,7 +1,7 @@
 <div id="inside2">
 <%= form_for @book do |f| %>
-    <% if flash[:errors] %>
-        <% flash[:errors].each do |error| %>
+    <% if flash[:book_errors] %>
+        <% flash[:book_errors].each do |error| %>
             <p><%= error %></p>
         <% end %>
     <% end %>

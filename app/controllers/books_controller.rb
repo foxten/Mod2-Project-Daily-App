@@ -19,7 +19,7 @@ class BooksController < ApplicationController
             UserBook.create(book_id: @book.id, user_id: @current_user.id)
             redirect_to @book
         else
-            flash[:errors] = @book.errors.full_messages
+            flash[:book_errors] = @book.errors.full_messages
             render new_book_path
         end
     end
