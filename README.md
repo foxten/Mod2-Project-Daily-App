@@ -3,27 +3,20 @@
 Daily 
 Just Call It a Day
 
+Description:
+This is a website/app that will help manage aspects of your daily life.
 
+Version 1.0 Basic features are up and running with more down the pipeline.
+- User Authentication
+- Full CRUD
+- 5 working models with active associations
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Ruby version: 6.0.3
 
-Things you may want to cover:
+* Configuration: 
+- Run "bundle install" from your terminal
+- Run Rails s from your terminal
+  
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-
+* Database creation:
+- You may need to seed your database so do not forget to run "rails db:seed" from your terminal
