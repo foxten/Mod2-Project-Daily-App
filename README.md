@@ -21,4 +21,4 @@ Version 1.0 Basic features are up and running with more down the pipeline.
 * Database creation:
 - You may need to seed your database so do not forget to run "rails db:seed" from your terminal
 
-Checkout this Demo: https://www.loom.com/share/ae3053da6338472ab3d8a70dbdc8c941
+* Checkout this Demo: https://www.loom.com/share/ae3053da6338472ab3d8a70dbdc8c941
